@@ -19,7 +19,7 @@ class PayView extends StatefulWidget{
   final double balance;
   final int hasPassWord;
   final int orderId;
-  final Function(int) payConfirmAction;
+  final Function(int,String) payConfirmAction;
   const PayView({Key key, this.totalAmount = 0.0,this.balance = 0.0,this.hasPassWord = 0,this.orderId = 0,this.payConfirmAction}) : super(key: key);
   @override
   _PayViewState createState() => _PayViewState();
@@ -164,6 +164,9 @@ class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
                       //   }
                       // }
                       Navigator.pop(context);
+                      setState(() {
+                        widget.payConfirmAction(payType,"");
+                      });
                     }
                   },
                   child: new Container(
@@ -252,6 +255,10 @@ class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
                     //     _updatePayOrderStatus();
                     //   }
                     // }
+                    Navigator.pop(context);
+                    setState(() {
+                      widget.payConfirmAction(payType,value);
+                    });
                   })
                 ],
               ),
