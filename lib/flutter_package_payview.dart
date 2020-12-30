@@ -26,9 +26,9 @@ class PayView extends StatefulWidget{
 }
 class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
   List<Map<String,dynamic>> payItems = [
-    {'title':'支付宝','icon':'images/icon-zhifubao.png','isSelect':true},
-    {'title':'微信支付','icon':'images/icon-weixinzhifu.png','isSelect':false},
-    {'title':'余额支付','icon':'images/img-yue.png','isSelect':false}
+    {'title':'支付宝','icon':'https://i.loli.net/2020/12/30/uONjqE2pICgo8mG.png','isSelect':true},
+    {'title':'微信支付','icon':'https://i.loli.net/2020/12/30/O39IZrEMe6YNQGy.png','isSelect':false},
+    {'title':'余额支付','icon':'https://i.loli.net/2020/12/30/FEuiGM9R6mv3xcq.png','isSelect':false}
   ];
   var payType = 1;
   AnimationController controller;
@@ -87,11 +87,10 @@ class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
                                 onTap: (){
                                   Navigator.pop(context);
                                 },
-                                child: new Image.asset(
-                                  'images/order/X-gray.png',
-                                  width: 15,
-                                  height: 15,
-                                ),
+                                child: new Icon(
+                                  Icons.clear,
+                                  size: 15,
+                                )
                               )
                           )
                         ],
@@ -217,12 +216,10 @@ class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
                                   _startAnimation();
                                   FocusScope.of(context).requestFocus(FocusNode());
                                 },
-                                child: new Image.asset(
-                                  'images/order/backArrow.png',
-                                  width: 15,
-                                  height: 15,
-                                  fit: BoxFit.fill,
-                                ),
+                                child: Icon(
+                                  Icons.arrow_back_ios,
+                                  size: 15,
+                                )
                               )
                           )
                         ],
@@ -342,7 +339,7 @@ class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
           children: [
             new Container(
               margin: EdgeInsets.only(right: 10),
-              child: new Image.asset(
+              child: new Image.network(
                 itemDict['icon'],
                 width: 30,
                 height: 30,
@@ -398,8 +395,8 @@ class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
             ):
             new Container(
               margin: EdgeInsets.only(right: 10),
-              child: new Image.asset(
-                itemDict['isSelect']?'images/order/btn-circle-act.png':'images/order/btn-circle-normal.png',
+              child: new Image.network(
+                itemDict['isSelect']?'https://i.loli.net/2020/12/30/OQhv3GFYSkBn1zL.png':'https://i.loli.net/2020/12/30/vxUOIgrzC3f5ond.png',
                 width: 20,
                 height: 20,
               ),
