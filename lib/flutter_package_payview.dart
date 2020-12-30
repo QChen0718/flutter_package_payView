@@ -20,15 +20,15 @@ class PayView extends StatefulWidget{
   final int hasPassWord;
   final int orderId;
   final Function(int) payConfirmAction;
-  const PayView({Key key, this.totalAmount,this.balance,this.hasPassWord,this.orderId,this.payConfirmAction}) : super(key: key);
+  const PayView({Key key, this.totalAmount = 0.0,this.balance = 0.0,this.hasPassWord = 0,this.orderId = 0,this.payConfirmAction}) : super(key: key);
   @override
   _PayViewState createState() => _PayViewState();
 }
 class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
   List<Map<String,dynamic>> payItems = [
-    {'title':'支付宝','icon':'images/order/icon-zhifubao.png','isSelect':true},
-    {'title':'微信支付','icon':'images/order/icon-weixinzhifu.png','isSelect':false},
-    {'title':'余额支付','icon':'images/order/img-yue.png','isSelect':false}
+    {'title':'支付宝','icon':'images/icon-zhifubao.png','isSelect':true},
+    {'title':'微信支付','icon':'images/icon-weixinzhifu.png','isSelect':false},
+    {'title':'余额支付','icon':'images/img-yue.png','isSelect':false}
   ];
   var payType = 1;
   AnimationController controller;
