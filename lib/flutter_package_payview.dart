@@ -40,6 +40,15 @@ class _PayViewState extends State<PayView> with SingleTickerProviderStateMixin{
   void initState() {
     // TODO: implement initState
     super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 300), vsync: this);
+    animation = new Tween(begin: 0.0, end: width).animate(controller)
+      ..addListener(() {
+        //刷新state 这样动画才会执行
+        setState(() {
+
+        });
+      });
   }
   @override
   Widget build(BuildContext context) {
